@@ -6,8 +6,8 @@ let urlImg = 'https://image.tmdb.org/t/p/w500'
 
 let resultContainer = document.getElementById('results')
 
-// Agrega el listener para Enter
-document.getElementById('searchInput').addEventListener('keydown', function(event) {
+// agrega un listener para Enter adicional al boton
+document.getElementById('searchInput').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         searchMovies()
     }
@@ -18,13 +18,13 @@ function searchMovies() {
     let searchInput = document.getElementById('searchInput').value
 
     fetch(`${urlBase}?api_key=${api_key}&query=${searchInput}`)
-    .then(response => response.json())
-    .then(response => displayMovies(response.results))
+        .then(response => response.json())
+        .then(response => displayMovies(response.results))
 }
 
 function displayMovies(movies) {
     resultContainer.innerHTML = ''
-    
+
     if (movies.length === 0) {
         resultContainer.innerHTML = '<p> No se encontraron resultados para tu búsqueda </p>'
         return
