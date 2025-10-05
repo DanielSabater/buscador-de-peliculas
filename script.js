@@ -17,7 +17,7 @@ function searchMovies() {
     resultContainer.innerHTML = 'Cargando...'
     let searchInput = document.getElementById('searchInput').value
 
-    fetch(`${urlBase}?api_key=${api_key}&query=${searchInput}`)
+    fetch(`${urlBase}?api_key=${api_key}&query=${searchInput}&language=es-ES`)
         .then(response => response.json())
         .then(response => displayMovies(response.results))
 }
